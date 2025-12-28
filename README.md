@@ -1,14 +1,14 @@
-# When AI Meets Finance (StockAgent): LLM-Driven Stock Trading in Realistic Simulation
+# When AI Meets Finance (AstraQuant): LLM-Driven Stock Trading in Realistic Simulation
 
 Can AI agents actually behave like real investors when markets react to things like macro trends, policy shifts, earnings, or global events? These external signals shape trading decisions every day, and they matter a lot when you care about returns.
 
-StockAgent is my attempt at answering that. It is a multi agent trading simulator powered by large language models, built to study how investors respond to real market conditions. With StockAgent, you can test how different external factors influence trading behavior and profitability, and analyze how agents react across scenarios.
+AstraQuant is my attempt at answering that. It is a multi agent trading simulator powered by large language models, built to study how investors respond to real market conditions. With AstraQuant, you can test how different external factors influence trading behavior and profitability, and analyze how agents react across scenarios.
 
-A key detail: StockAgent is designed to avoid test data leakage. The agents do not get prior knowledge of the evaluation period, so their decisions reflect only what is realistically available at the time.
+A key detail: AstraQuant is designed to avoid test data leakage. The agents do not get prior knowledge of the evaluation period, so their decisions reflect only what is realistically available at the time.
 
 I evaluate multiple LLMs inside this framework and place them in a trading setup that closely mirrors real world environments. The results highlight how external signals shape market activity, price movement, and trading styles. The work also looks at how agents behave when they operate without prior knowledge of the data they trade on.
 
-Overall, the takeaways from StockAgent help inform how LLMs might be used for real investing workflows like trading insights and stock recommendation.
+Overall, the takeaways from AstraQuant help inform how LLMs might be used for real investing workflows like trading insights and stock recommendation.
 
 
 
@@ -18,8 +18,8 @@ The trading simulation runs in four phases: **Initial Phase**, **Trading Phase**
 
 #### Environment
 
-conda create --name stockagent python=3.9
-conda activate stockagent
+conda create --name AstraQuant python=3.9
+conda activate AstraQuant
 
 git clone https://github.com/dhh1995/PromptCoder
 cd PromptCoder
@@ -27,7 +27,7 @@ pip install -e .
 cd ..
 
 git clone <This Github Project>
-cd Stockagent
+cd AstraQuant
 pip install -r requirements.txt
 
 #### API Keys
@@ -52,4 +52,4 @@ By default, the system uses gemini-pro.
 
 This project uses PromptCoder:
 https://github.com/dhh1995/PromptCoder.git
-Install it before running StockAgent.
+Install it before running AstraQuant.
