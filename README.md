@@ -1,22 +1,23 @@
-# When AI Meets Finance (StockAgent): Large Language Model-based Stock Trading in Simulated Real-world Environments
+# When AI Meets Finance (StockAgent): LLM-Driven Stock Trading in Realistic Simulation
 
-![workflow](fig/workflow.png)
-![schematic](fig/schematic.png)
+Can AI agents actually behave like real investors when markets react to things like macro trends, policy shifts, earnings, or global events? These external signals shape trading decisions every day, and they matter a lot when you care about returns.
 
-Can AI Agents simulate real-world trading environments to investigate the impact of external factors on stock trading activities (e.g., macroeconomics, policy changes, company fundamentals, and global events)? These factors, which frequently influence trading behaviors, are critical elements in the quest for maximizing investors' profits. Our work attempts to solve this problem through large language model-based agents. We have developed a multi-agent AI system called StockAgent, driven by LLMs,  designed to simulate investors' trading behaviors in response to the real stock market. The StockAgent allows users to evaluate the impact of different external factors on investor trading and to analyze trading behavior and profitability effects. Additionally, StockAgent avoids the test set leakage issue present in existing trading simulation systems based on AI Agents. Specifically, it prevents the model from leveraging prior knowledge it may have acquired related to the test data. We evaluate different LLMs under the framework of StockAgent in a stock trading environment that closely resembles real-world conditions. The experimental results demonstrate the impact of key external factors on stock market trading, including trading behavior and stock price fluctuation rules. This research explores the study of agents' free trading gaps in the context of no prior knowledge related to market data. The patterns identified through StockAgent simulations provide valuable insights for LLM-based investment advice and stock recommendation. 
+StockAgent is my attempt at answering that. It is a multi agent trading simulator powered by large language models, built to study how investors respond to real market conditions. With StockAgent, you can test how different external factors influence trading behavior and profitability, and analyze how agents react across scenarios.
 
-## Link
-ARXIV LINK: https://arxiv.org/pdf/2407.18957
-## Architecture
-![architect](fig/workflow2.png)
+A key detail: StockAgent is designed to avoid test data leakage. The agents do not get prior knowledge of the evaluation period, so their decisions reflect only what is realistically available at the time.
 
-The Workflow of Trading Simulation Flow. There are four Phases, namely **Initial Phase**, **Trading Phase**, **Post-Trading Phase** and **Special Events Phase**. In the Post-Trading Phase, Daily events and Quarterly events occur with daily and quarterly frequency respectively. A Specific Events Phase is an event that occurs randomly and acts on a random trading day.
+I evaluate multiple LLMs inside this framework and place them in a trading setup that closely mirrors real world environments. The results highlight how external signals shape market activity, price movement, and trading styles. The work also looks at how agents behave when they operate without prior knowledge of the data they trade on.
+
+Overall, the takeaways from StockAgent help inform how LLMs might be used for real investing workflows like trading insights and stock recommendation.
+
+
+
+The trading simulation runs in four phases: **Initial Phase**, **Trading Phase**, **Post Trading Phase**, and **Special Events Phase**. Daily and quarterly events happen during the Post Trading Phase, while Special Events are random and applied on a random trading day.
 
 ## Quick Start
 
 #### Environment
 
-```
 conda create --name stockagent python=3.9
 conda activate stockagent
 
@@ -28,45 +29,27 @@ cd ..
 git clone <This Github Project>
 cd Stockagent
 pip install -r requirements.txt
-```
 
-#### API keys
+#### API Keys
 
-Use GPTs as agent LLM:
+Use GPT models as the agent LLM:
 
-```
 export OPENAI_API_KEY=YOUR_OPENAI_API_KEY
-```
 
-Use Gemini as agent LLM:
+Use Gemini as the agent LLM:
 
-```
 export GOOGLE_API_KEY=YOUR_GEMINI_API_KEY
-```
 
-#### Start simulation
+#### Run a simulation
 
-You can choose a basic LLM and start simulation in one line:
+Pick a base LLM and start:
 
-```
 python main.py --model MODEL_NAME
-```
 
-We set gemini-pro for default LLM.
+By default, the system uses gemini-pro.
 
-#### About ’procoder‘
+#### About `procoder`
 
-Here we use the: https://github.com/dhh1995/PromptCoder.git this tool, please download after its installation.
-
-#### Citation
-If you find the code is valuable, please use this citation.
-```
-@article{zhang2024ai,
-  title={When AI Meets Finance (StockAgent): Large Language Model-based Stock Trading in Simulated Real-world Environments},
-  author={Zhang, Chong and Liu, Xinyi and Jin, Mingyu and Zhang, Zhongmou and Li, Lingyao and Wang, Zhengting and Hua, Wenyue and Shu, Dong and Zhu, Suiyuan and Jin, Xiaobo and others},
-  journal={arXiv preprint arXiv:2407.18957},
-  year={2024}
-}
-```
-
-
+This project uses PromptCoder:
+https://github.com/dhh1995/PromptCoder.git
+Install it before running StockAgent.

@@ -9,7 +9,7 @@ AGENTS_NUM = 50  # Number of traders
 TOTAL_DATE = 264   # Simulation duration
 TOTAL_SESSION = 3   # Number of trading sessions per day
 
-# 股票初始价格
+# Initial stock price:
 STOCK_A_INITIAL_PRICE = 30
 STOCK_B_INITIAL_PRICE = 40
 # STOCK_B_PUBLISH = 100   # Stock B issuance quantity
