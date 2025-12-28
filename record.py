@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-# 交易记录
+
 class TradeRecord:
     def __init__(self, date, session, stock_type, buyer, seller, quantity, price):
         self.date = date
@@ -18,12 +18,12 @@ class TradeRecord:
         else:
             existing_df = pd.DataFrame(columns=["交易日", "交易阶段", "股票类型", "买入交易员", "卖出交易员", "交易数量", "交易价格"])
 
-        # 将新的交易记录合并到现有DataFrame
+       
         new_records = [[self.date, self.session, self.stock_type, self.buyer, self.seller, self.quantity, self.price]]
         new_df = pd.DataFrame(new_records, columns=existing_df.columns)
         all_records_df = pd.concat([existing_df, new_df], ignore_index=True)
 
-        # 将所有记录写入到Excel文件
+     
         all_records_df.to_excel(file_name, index=False)
 
 def create_trade_record(date, stage, stock, buy_trader, sell_trader, amount, price):
@@ -31,7 +31,7 @@ def create_trade_record(date, stage, stock, buy_trader, sell_trader, amount, pri
     record.write_to_excel()
     record = None
 
-# 将交易记录列表写入Excel文件（如果文件不存在则创建）
+
 
 class StockRecord:
     def __init__(self, date, session, stock_a_price, stock_b_price):
@@ -46,12 +46,12 @@ class StockRecord:
         else:
             existing_df = pd.DataFrame(columns=["交易日", "第几个交易阶段", "阶段结束后股票A价格", "阶段结束后股票B价格"])
 
-        # 将新的交易记录合并到现有DataFrame
+        
         new_records = [[self.date, self.session, self.stock_a_price, self.stock_b_price]]
         new_df = pd.DataFrame(new_records, columns=existing_df.columns)
         all_records_df = pd.concat([existing_df, new_df], ignore_index=True)
 
-        # 将所有记录写入到Excel文件
+        
         all_records_df.to_excel(file_name, index=False)
 
 def create_stock_record(date, session, stock_a_price, stock_b_price):
@@ -90,13 +90,13 @@ class AgentRecordDaily:
             existing_df = pd.DataFrame(columns=["交易员", "交易日", "是否贷款", "贷款类型", "贷款数量",
                                                 "明日是否贷款", "明日是否买入A", "明日是否卖出A", "明日是否买入B", "明日是否卖出B"])
 
-        # 将新的交易记录合并到现有DataFrame
+        
         new_records = [[self.agent, self.date, self.if_loan, self.loan_type, self.loan_amount,
                         self.will_loan, self.will_buy_a, self.will_sell_a, self.will_buy_b, self.will_sell_b]]
         new_df = pd.DataFrame(new_records, columns=existing_df.columns)
         all_records_df = pd.concat([existing_df, new_df], ignore_index=True)
 
-        # 将所有记录写入到Excel文件
+       
         all_records_df.to_excel(file_name, index=False)
 
 class AgentRecordSession:
@@ -125,14 +125,14 @@ class AgentRecordSession:
                                                 "交易前持有现金", "交易前持有的A股价值", "交易前持有的B股价值",
                                                 "挂单类型", "挂单股票类别", "挂单数量", "挂单价格"])
 
-        # 将新的交易记录合并到现有DataFrame
+       
         new_records = [[self.agent, self.date, self.session, self.proper, self.cash,
                         self.stock_a_value, self.stock_b_value, self.action_type, self.action_stock,
                         self.amount, self.price]]
         new_df = pd.DataFrame(new_records, columns=existing_df.columns)
         all_records_df = pd.concat([existing_df, new_df], ignore_index=True)
 
-        # 将所有记录写入到Excel文件
+    
         all_records_df.to_excel(file_name, index=False)
 
 def create_agentses_record(agent, date, session, proper, cash, stock_a_value, stock_b_value, action_json):
